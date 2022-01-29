@@ -1,0 +1,33 @@
+@page "/base64converter"
+
+<h1>Base 64 Converter</h1>
+<div class="form-group">
+    <textarea name="" id="" rows="10" @bind-value="NonBase64TextArea" @bind-value:event="oninput"  class="form-control col-md-6" placeholder="Non Base64"></textarea>
+    <small class="form-text text-muted">This is the value you want to encode as base64</small>
+</div>
+<br/>
+<button class="btn btn-primary" type="button" @onclick="ConvertToBase64"><span class="oi oi-arrow-thick-bottom"></span> Encode</button>
+<button class="btn btn-success" type="button" @onclick="ConvertFromBase64"><span class="oi oi-arrow-thick-top"></span> Decode</button>
+<br/>
+<br/>
+<div class="form-group">
+    <textarea name="" id="" rows="10" @bind-value="Base64BodyTextArea" @bind-value:event="oninput" class="form-control col-md-6" placeholder="Base64"></textarea>
+    <small class="form-text text-muted">This is the value you want to decode from base64</small>
+</div>
+
+@code {
+    public string NonBase64TextArea { get; set; }
+    public string Base64BodyTextArea { get; set; }
+
+    private void ConvertToBase64()
+    {
+        var regularTextByte = Encoding.UTF8.GetBytes(NonBase64TextArea);
+        Base64BodyTextArea = Convert.ToBase64String(regularTextByte);
+    }
+
+    private void ConvertFromBase64()
+    {
+        var base64EncodedBytes = Convert.FromBase64String(Base64BodyTextArea);
+        NonBase64TextArea = Encoding.UTF8.GetString(base64EncodedBytes);
+    }
+}
