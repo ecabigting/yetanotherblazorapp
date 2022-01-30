@@ -1,0 +1,48 @@
+﻿@page "/spacexlaunches"
+@using Dtos
+@inject HttpClient Http
+
+<PageTitle>Space X Launces</PageTitle>
+
+<h1>SpaceX Launches</h1>
+
+<p>Launch Data from the SpaceX Launched Rest API</p>
+
+@if (launches == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tentative(Yes/No)</th>
+                <th>Launch Date</th>
+                <th>Mission Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var launch in launches)
+            {
+                <tr>
+                    <td>@launch.Id</td>
+                    <td>@launch.IsTentative</td>
+                    <td>@launch.LaunchDateLocal</td>
+                    <td>@launch.MissionName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private LaunchDto[]? launches;
+
+    protected override async Task OnInitializedAsync()
+    {
+        launches = await Http.GetFromJsonAsync<LaunchDto[]>("https://api.spacex.land/rest/launches?limit=20&order=desc");
+    }
+
+}

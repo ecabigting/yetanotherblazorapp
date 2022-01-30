@@ -21,13 +21,20 @@
 
     private void ConvertToBase64()
     {
-        var regularTextByte = Encoding.UTF8.GetBytes(NonBase64TextArea);
-        Base64BodyTextArea = Convert.ToBase64String(regularTextByte);
+        if(!String.IsNullOrEmpty(NonBase64TextArea))
+        {
+            var regularTextByte = Encoding.UTF8.GetBytes(NonBase64TextArea);
+            Base64BodyTextArea = Convert.ToBase64String(regularTextByte);
+        }
     }
 
     private void ConvertFromBase64()
     {
-        var base64EncodedBytes = Convert.FromBase64String(Base64BodyTextArea);
-        NonBase64TextArea = Encoding.UTF8.GetString(base64EncodedBytes);
+        if(!String.IsNullOrEmpty(Base64BodyTextArea))
+        {
+            var base64EncodedBytes = Convert.FromBase64String(Base64BodyTextArea);
+            NonBase64TextArea = Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        
     }
 }

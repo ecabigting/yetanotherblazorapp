@@ -11,4 +11,7 @@
 
 A Web app to demo Blazor connecting to REST API and GraphQL by switchable configuration
 
+This project also consumes the public API of SpaceX for landing which can be found [here](https://api.spacex.land/rest/)
+
 A running demo of the app is available at Heroku and can be accessed from [here](https://yetanotherblazorapp.herokuapp.com/).
+
