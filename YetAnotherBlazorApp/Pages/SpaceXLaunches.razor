@@ -1,8 +1,6 @@
 ﻿@page "/spacexlaunches"
-@using Dtos
-@inject HttpClient Http
 
-<PageTitle>Space X Launces</PageTitle>
+<PageTitle>Space X Launches</PageTitle>
 
 <h1>SpaceX Launches</h1>
 
@@ -35,14 +33,4 @@ else
             }
         </tbody>
     </table>
-}
-
-@code {
-    private LaunchDto[]? launches;
-
-    protected override async Task OnInitializedAsync()
-    {
-        launches = await Http.GetFromJsonAsync<LaunchDto[]>("https://api.spacex.land/rest/launches?limit=20&order=desc");
-    }
-
 }
