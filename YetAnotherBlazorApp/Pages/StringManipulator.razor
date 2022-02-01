@@ -1,0 +1,25 @@
+@page "/stringmanipulator"
+
+<PageTitle>String Manipulator</PageTitle>
+
+<h1>String Manipulator 
+    <button class="btn btn-danger" type="button" @onclick="ClearText">Clear</button>
+</h1>
+<div class="form-group">
+    
+    <textarea name="" id="" rows="10" @bind-value="TextareaToConvert" @bind-value:event="oninput"  class="form-control col-md-6" placeholder="Enter string..."></textarea>
+    <small class="form-text text-muted">This is the string you want to manipulate</small>
+</div>
+<br/>
+<div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-primary btn-sm" type="button" @onclick="ToUpperCaps">TO UPPER CASE</button>
+    <button class="btn btn-primary btn-sm" type="button" @onclick="AllSmallCaps">to lower case</button>
+    <button class="btn btn-primary btn-sm" type="button" @onclick="FirstLetterCaps">First Letter Caps</button>
+    <button class="btn btn-primary btn-sm" type="button" @onclick="ReplaceSpaceWithHypen">replace-space-with-hypen</button>
+    <button class="btn btn-primary btn-sm" type="button" @onclick="ReplaceReplaceHypenWithSpace">replace-space-with-hypen</button>
+    <button class="btn btn-primary btn-sm" type="button" @onclick="ToAlterNateCase">aLtErNaTe CaSe</button>
+</div>
+
+<br/>
+<br/>
+
