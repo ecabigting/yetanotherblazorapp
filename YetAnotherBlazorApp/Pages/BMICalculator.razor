@@ -1,0 +1,24 @@
+@page "/bmicalculator"
+
+<PageTitle>Body Mass Index Calculator</PageTitle>
+
+<h1>Body Mass Index Calculator</h1>
+
+<form>
+<div class="form-group">
+    <label for="WeightValue">Weight (lbs):</label>
+    <input type="number" id="WeightValue" class="form-control" placeholder="lbs" @bind-value="WeightValue" @bind-value:event="oninput"/>
+</div>
+<div class="form-group">
+    <label for="HeightValue">Heights (in):</label>
+    <input type="number" id="HeightValue" class="form-control" placeholder="inches" @bind-value="HeightValue" @bind-value:event="oninput"/>
+</div>
+<div class="form-group">
+    <label for="YourBMI">Your BMI:</label>
+    <input type="number" id="YourBMI" class="form-control" placeholder="inches" @bind-value="YourBMI" @bind-value:event="oninput"/>
+</div>
+<br/>
+<div class="form-group">
+    <button class="btn btn-primary" type="button" @onclick="CalculateBMI"><span class="oi oi-calculator"></span> Calculate BMI</button>
+</div>
+</form>
