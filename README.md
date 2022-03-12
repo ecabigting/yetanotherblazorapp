@@ -8,6 +8,7 @@
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
+Currently under development. Check Main branch for commit progress.
 
 A Web app to demo Blazor connecting to REST API and GraphQL by switchable configuration
 
